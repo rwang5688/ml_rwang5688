@@ -55,8 +55,9 @@ def main():
     print(prius_mileage_price_data)
     print('==')
 
+    n = len(prius_mileage_price_data)
     print('==')
-    print('starting gradient descent to find line of best fit ...')
+    print(f'starting gradient descent to find line of best fit over {n} points ...')
     print('==')
     c, d = gradient_descent(scaled_linear_coefficient_cost_over_car_data, 0, 0)
     print(f'c = {c}, d = {d}')
@@ -65,7 +66,7 @@ def main():
     print('==')
 
     print('==')
-    print('starting gradient descent to find exponential function of best fit ...')
+    print(f'starting gradient descent to find exponential function of best fit over {n} points ...')
     print('==')
     s, t = gradient_descent(scaled_exp_coefficient_cost_over_car_data, 0, 0)
     print('==')

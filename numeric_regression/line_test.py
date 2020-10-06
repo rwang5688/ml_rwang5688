@@ -17,8 +17,9 @@ def main():
     print(line_data)
     print('==')
 
+    n = len(line_data)
     print('==')
-    print('starting gradient descent to find line of best fit ...')
+    print(f'starting gradient descent to find line of best fit over {n} points ...')
     print('==')
     a, b = gradient_descent(linear_cost_over_line_data, 0, 0)
     print('==')
