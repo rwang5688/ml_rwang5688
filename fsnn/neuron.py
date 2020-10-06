@@ -1,5 +1,5 @@
 from typing import List, Callable
-from vectorops import dot_product
+from vectors import dot_product
 
 
 class Neuron:

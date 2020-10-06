@@ -21,7 +21,7 @@
 import csv
 from typing import List
 from random import shuffle
-from normalize import normalize_by_feature_scaling
+from normalization import normalize_by_feature_scaling
 from network import Network
 
 

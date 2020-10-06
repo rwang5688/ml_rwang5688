@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Callable, Optional
 from random import random
 from neuron import Neuron
-from vectorops import dot_product
+from vectors import dot_product
 
 
 class Layer:
