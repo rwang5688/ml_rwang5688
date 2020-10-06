@@ -816,7 +816,7 @@ raw_priuses = {('toyota', 'prius', 2001.0, 40.0, 1999.0, 89.53669775157407),
  ('toyota', 'prius', 2019.0, 100000.0, 26188.0, -0.0021014016203703702)}
 
 class Car():
-    def __init__(self,*args):
+    def __init__(self, *args):
         self.make = args[0]
         self.model = args[1]
         self.year = args[2]
@@ -824,14 +824,14 @@ class Car():
         self.price = args[4]
         self.time_posted = args[5]
 
+# convert raw priuses data to a collection of distinct prius objects with mileage and price
 distinct_priuses = {
-        (p[3], p[4]): Car(*p)
-        for p in raw_priuses
-    }
+    (p[3], p[4]): Car(*p) for p in raw_priuses
+}
 
 # filter out values with mileage < 1000 and price > 1000 as many of these are clearly bad data
 priuses = [p for p in distinct_priuses.values() if p.mileage > 1000 and p.price > 1000]
 
 # prius (mileage, price) data set
-prius_mileage_price = [(p.mileage, p.price) for p in priuses]
+prius_mileage_price_data = [(p.mileage, p.price) for p in priuses]
 
