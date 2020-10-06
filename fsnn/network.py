@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Callable, TypeVar, Tuple
 from functools import reduce
 from layer import Layer
-from sigmoid import sigmoid, derivative_sigmoid
+from activation_functions import sigmoid, derivative_sigmoid
 
 
 T = TypeVar('T') # output type of interpretation of neural network
