@@ -3,6 +3,7 @@ from classifiers import bmw_finder_price_gt_25k
 from classifiers import bmw_finder_price_gt_20k
 from classifiers import bmw_finder_price_gt_cutoff_price
 from classifiers import bmw_finder_decision_boundary
+from scale import make_scale
 
 
 def load_all_car_data():
@@ -76,6 +77,15 @@ def main():
     print(f'bmw_finder_decision_boundary accuracy={accuracy*100}%')
     print('where decision boundary is: price = 21k - 0.07 * mileage')
     print('===')
+
+    # create a scaled version of all_car_data where mileage and price values are btw 0 and 1
+    mileage_scale, mileage_unscale = make_scale([x[0] for x in all_car_data])
+    price_scale, price_unscale = make_scale([x[1] for x in all_car_data])
+    scaled_car_data = [(mileage_scale(mileage), price_scale(price), is_bmw)
+                    for mileage,price,is_bmw in all_car_data]
+    print('scaled_car_data:')
+    print(scaled_car_data)
+
 
 if __name__ == "__main__":
     main()
