@@ -51,6 +51,7 @@ def main():
     print('all_car_data:')
     print(all_car_data)
 
+    # constant decision boundaries: cutoff price = 25k, 20k, most accurate cutoff
     print('===')
     accuracy = test_classifier(bmw_finder_price_gt_25k, all_car_data, True)
     print(f'bmw_finder_price_gt_25k accuracy={accuracy*100}%')
@@ -69,7 +70,7 @@ def main():
     print(f'most accurate cutoff price is {most_accurate_cutoff_price} at accuracy={best_accuracy*100}%')
     print('===')
 
-    # decision boundary: price = 21000 - 0.07 * mileage
+    # linear decision boundary: price = 21000 - 0.07 * mileage
     print('===')
     accuracy = test_classifier(bmw_finder_decision_boundary, all_car_data, True)
     print(f'bmw_finder_decision_boundary accuracy={accuracy*100}%')
