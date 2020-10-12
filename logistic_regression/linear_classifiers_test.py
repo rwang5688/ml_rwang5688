@@ -5,7 +5,7 @@ from linear_classifiers import bmw_finder_price_gt_cutoff_price
 from linear_classifiers import bmw_finder_decision_boundary
 
 
-def load_all_car_data():
+def load_and_label_all_car_data():
     global all_car_data
     all_car_data = []
     for bmw in bmws:
@@ -47,7 +47,7 @@ def cutoff_accuracy(cutoff_price):
 
 
 def main():
-    load_all_car_data()
+    load_and_label_all_car_data()
     print('all_car_data:')
     print(all_car_data)
 
