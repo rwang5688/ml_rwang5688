@@ -9,9 +9,9 @@ def load_all_car_data():
     global all_car_data
     all_car_data = []
     for bmw in bmws:
-        all_car_data.append((bmw.mileage,bmw.price,1))
+        all_car_data.append((bmw.mileage, bmw.price, 1))
     for prius in priuses:
-        all_car_data.append((prius.mileage,prius.price,0))
+        all_car_data.append((prius.mileage, prius.price, 0))
 
 
 def test_classifier(classifier, data, verbose=False): #1
