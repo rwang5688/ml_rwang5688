@@ -1,6 +1,6 @@
 from line_data import line_data
 from error_functions import sum_squared_errors
-from gradient_descent import gradient_descent
+from gradient_descent2 import gradient_descent2
 
 
 # define linear cost function over line data
@@ -21,7 +21,7 @@ def main():
     print('==')
     print(f'starting gradient descent to find line of best fit over {n} points ...')
     print('==')
-    a, b = gradient_descent(linear_cost_over_line_data, 0, 0)
+    a, b = gradient_descent2(linear_cost_over_line_data, 0, 0)
     print('==')
     print(f'line of best fit: {a} * x + {b}')
     print('==')
