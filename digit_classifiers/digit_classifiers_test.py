@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn import datasets
 from digit_classifiers import random_digit_classifier
+from digit_classifiers import calculate_average_digits, average_digit_classifier
 from test_digit_classifier import test_digit_classifier
 
 
@@ -34,8 +35,16 @@ def main():
     # test random digit classifier on the first 1000 images
     print('===')
     accuracy = test_digit_classifier(random_digit_classifier, 1000)
-    print(f'test random digit classifier: accuracy={accuracy*100}%.')
+    print(f'random digit classifier: accuracy={accuracy*100}%.')
     print('===')
+
+    # test average digit classifier on the first 1000 images
+    print('===')
+    calculate_average_digits()
+    accuracy = test_digit_classifier(average_digit_classifier, 1000)
+    print(f'average digit classifier: accuracy={accuracy*100}%.')
+    print('===')
+
 
 
 if __name__ == "__main__":
