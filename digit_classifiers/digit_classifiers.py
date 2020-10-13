@@ -7,10 +7,10 @@ def random_digit_classifier(v):
     return np.random.rand(10)
 
 
-# average classifer:
-# for each digit from 0 .. 9
-#   calculate an avg image from image1000 onward
-# compare against avg image vector
+# average classifer: return an array of dot products btw input vector and avg image vector
+# avg image vector:
+#   for each digit from 0 .. 9
+#       calculate an avg image from image1000 onward
 def average_img(i):
     imgs = [img for img,target in zip(digits.images[1000:], digits.target[1000:]) if target == i]
     return sum(imgs) / len(imgs)
