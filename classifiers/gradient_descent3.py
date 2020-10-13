@@ -29,5 +29,7 @@ def gradient_descent3(f, xstart, ystart, zstart,
         z -= 0.01 * grad[2]
         grad = approx_gradient3(f, x, y, z)
         steps += 1
+    print(f'gradient_descent3: max_steps = {max_steps}')
+    print(f'gradient_descent3: converged or reached max_steps after {steps} steps')
     return x, y, z
 
