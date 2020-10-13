@@ -1,5 +1,6 @@
 from car_data import bmws, priuses
 from scale import make_scale
+from logistic_classifiers import compare_logistic_cost_functions
 from test_classifier import test_classifier
 
 
@@ -25,10 +26,16 @@ def main():
     print('all_car_data:')
     print(all_car_data)
 
-    # create a scaled version of all_car_data where mileage and price values are btw 0 and 1
+    # scale all_car_data where mileage and price values are btw 0 and 1
     make_scaled_car_data()
     print('scaled_car_data:')
     print(scaled_car_data)
+
+    # a=0.35, b=1, c=0.56 => f(x, p) = 0.35 * x + 1 * p + 0.56
+    compare_logistic_cost_functions(0.35, 1, 0.56, scaled_car_data)
+
+    # a=1, b=1, c=1 => f(x, p) = 1 * x + 1 * p + 1
+    compare_logistic_cost_functions(1, 1, 1, scaled_car_data)
 
 
 if __name__ == "__main__":
