@@ -1,5 +1,6 @@
 from car_data import bmws, priuses
 from scale import make_scale
+from logistic_classifiers import set_logistic_classifiers_data
 from logistic_classifiers import compare_logistic_cost_functions
 from test_classifier import test_classifier
 
@@ -31,11 +32,14 @@ def main():
     print('scaled_car_data:')
     print(scaled_car_data)
 
+    # set data to be used by logistic classifiers
+    set_logistic_classifiers_data(scaled_car_data)
+
     # a=0.35, b=1, c=0.56 => f(x, p) = 0.35 * x + 1 * p + 0.56
-    compare_logistic_cost_functions(0.35, 1, 0.56, scaled_car_data)
+    compare_logistic_cost_functions(0.35, 1, 0.56)
 
     # a=1, b=1, c=1 => f(x, p) = 1 * x + 1 * p + 1
-    compare_logistic_cost_functions(1, 1, 1, scaled_car_data)
+    compare_logistic_cost_functions(1, 1, 1)
 
 
 if __name__ == "__main__":
