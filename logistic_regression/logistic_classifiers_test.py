@@ -1,5 +1,6 @@
 from car_data import bmws, priuses
 from scale import make_scale
+from test_classifier import test_classifier
 
 
 def load_and_label_all_car_data():
