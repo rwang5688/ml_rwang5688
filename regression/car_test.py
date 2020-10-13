@@ -1,7 +1,7 @@
 from math import exp
 from car_data import distinct_priuses, priuses, prius_mileage_price_data
 from error_functions import sum_squared_errors
-from gradient_descent import gradient_descent
+from gradient_descent2 import gradient_descent2
 
 
 # unscale linear coefficients
@@ -59,7 +59,7 @@ def main():
     print('==')
     print(f'starting gradient descent to find line of best fit over {n} points ...')
     print('==')
-    c, d = gradient_descent(scaled_linear_coefficient_cost_over_car_data, 0, 0)
+    c, d = gradient_descent2(scaled_linear_coefficient_cost_over_car_data, 0, 0)
     print(f'c = {c}, d = {d}')
     a, b = unscale_linear_coefficients(c, d)
     print(f'line of best fit: {a} * x + {b}')
@@ -68,7 +68,7 @@ def main():
     print('==')
     print(f'starting gradient descent to find exponential function of best fit over {n} points ...')
     print('==')
-    s, t = gradient_descent(scaled_exp_coefficient_cost_over_car_data, 0, 0)
+    s, t = gradient_descent2(scaled_exp_coefficient_cost_over_car_data, 0, 0)
     print('==')
     print(f's = {s}, t = {t}')
     q, r = unscale_exp_coefficients(s, t)
