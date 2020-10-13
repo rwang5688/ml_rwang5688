@@ -3,6 +3,7 @@ from sklearn import datasets
 
 
 # random classifier: return an array of 10 probabilities between 0 and 1
+# representing the probabilities that the image is digit 0 .. 9
 def random_digit_classifier(v):
     return np.random.rand(10)
 
