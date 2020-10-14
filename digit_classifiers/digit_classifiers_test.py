@@ -34,17 +34,16 @@ def main():
 
     # test random digit classifier on the first 1000 images
     print('===')
-    accuracy = test_digit_classifier(random_digit_classifier, 1000)
+    accuracy = test_digit_classifier(random_digit_classifier, test_start=0, test_count=1000)
     print(f'random digit classifier: accuracy={accuracy*100}%.')
     print('===')
 
     # test average digit classifier on the first 1000 images
     print('===')
     calculate_average_digits()
-    accuracy = test_digit_classifier(average_digit_classifier, 1000)
+    accuracy = test_digit_classifier(average_digit_classifier, test_start=0, test_count=1000)
     print(f'average digit classifier: accuracy={accuracy*100}%.')
     print('===')
-
 
 
 if __name__ == "__main__":
