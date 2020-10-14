@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn import datasets
+from RandomMLP import RandomMLP
 
 
 # random classifier: return an array of 10 probabilities between 0 and 1
@@ -26,4 +27,15 @@ def calculate_average_digits():
 
 def average_digit_classifier(v):
     return [np.dot(v, avg_digits[i]) for i in range(10)]
+
+
+# random MLP classifier: use a MLP with randomly generated weights and biases
+def set_layer_sizes(lsizes):
+    global layer_sizes
+    layer_sizes = lsizes
+
+
+def random_mlp_digit_classifier(v):
+    nn = RandomMLP(layer_sizes)
+    return nn.evaluate(v)
 
