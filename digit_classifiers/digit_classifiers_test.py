@@ -85,24 +85,25 @@ def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_co
 
 
 def main():
+    # load data and perform training
     setup()
 
-    # exercise random digit classifier
+    # evaluate random digit classifier
     evaluate_digit_classifier(random_digit_classifier,
                                 "random_digit_classifier",
                                 test_start=0, test_count=1000)
 
-    # exercise average digit classifier on image0
+    # evaluate average digit classifier on image0
     evaluate_digit_classifier(average_digit_classifier,
                                 "average_digit_classifier",
                                 test_start=0, test_count=1000)
 
-    # exercise random MLP digit classifier
+    # evaluate random MLP digit classifier
     evaluate_digit_classifier(random_mlp_digit_classifier,
                                 "random_mlp_digit_classifier",
                                 test_start=0, test_count=1000)
 
-    # exercise sklearn MLP digit classifier
+    # evaluate sklearn MLP digit classifier
     evaluate_digit_classifier(sklearn_mlp_digit_classifier,
                                 "sklearn_mlp_digit_classifier",
                                 test_start=0, test_count=1000)
