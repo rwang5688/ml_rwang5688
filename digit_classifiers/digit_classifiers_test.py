@@ -5,8 +5,8 @@ from digit_classifiers import random_digit_classifier
 from digit_classifiers import calculate_average_digits, average_digit_classifier
 from digit_classifiers import set_layer_sizes, random_mlp_digit_classifier
 from digit_classifiers import train_sklearn_mlp_digit_classifier, sklearn_mlp_digit_classifier
-from test_digit_classifier import load_digits_and_test_set
-from test_digit_classifier import test_digit_classifier, calculate_total_cost
+from evaluate_digit_classifier import load_digits_and_test_set
+from evaluate_digit_classifier import test_digit_classifier, calculate_total_cost
 
 
 # digit classifiers to evaluate
