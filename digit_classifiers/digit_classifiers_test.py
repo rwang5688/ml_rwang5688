@@ -55,7 +55,7 @@ def setup():
     print('==')
 
 
-def exercise_digit_classifier(classifier, classifier_name, test_start=0, test_count=1000):
+def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_count=1000):
     # use classifier on image0
     print('===')
     print(f'begin exercise: {classifier_name}')
@@ -88,22 +88,22 @@ def main():
     setup()
 
     # exercise random digit classifier
-    exercise_digit_classifier(random_digit_classifier,
+    evaluate_digit_classifier(random_digit_classifier,
                                 "random_digit_classifier",
                                 test_start=0, test_count=1000)
 
     # exercise average digit classifier on image0
-    exercise_digit_classifier(average_digit_classifier,
+    evaluate_digit_classifier(average_digit_classifier,
                                 "average_digit_classifier",
                                 test_start=0, test_count=1000)
 
     # exercise random MLP digit classifier
-    exercise_digit_classifier(random_mlp_digit_classifier,
+    evaluate_digit_classifier(random_mlp_digit_classifier,
                                 "random_mlp_digit_classifier",
                                 test_start=0, test_count=1000)
 
     # exercise sklearn MLP digit classifier
-    exercise_digit_classifier(sklearn_mlp_digit_classifier,
+    evaluate_digit_classifier(sklearn_mlp_digit_classifier,
                                 "sklearn_mlp_digit_classifier",
                                 test_start=0, test_count=1000)
 
