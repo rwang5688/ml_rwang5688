@@ -58,7 +58,7 @@ def setup():
 def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_count=1000):
     # use classifier on image0
     print('===')
-    print(f'begin exercise: {classifier_name}')
+    print(f'begin evaluation: {classifier_name}')
 
     print('---')
     result0 = classifier(scaled_and_flattened_image0)
@@ -80,7 +80,7 @@ def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_co
     print(f'{classifier_name}: total cost={total_cost}.')
     print('---')
 
-    print(f'end exercise: {classifier_name}.')
+    print(f'end evaluation: {classifier_name}.')
     print('===')
 
 
