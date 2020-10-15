@@ -5,8 +5,17 @@ from digit_classifiers import random_digit_classifier
 from digit_classifiers import calculate_average_digits, average_digit_classifier
 from digit_classifiers import set_layer_sizes, random_mlp_digit_classifier
 from digit_classifiers import train_sklearn_mlp_digit_classifier, sklearn_mlp_digit_classifier
-from test_digit_classifier import load_digits_and_test_set
-from test_digit_classifier import test_digit_classifier, calculate_total_cost
+from evaluate_digit_classifier import load_digits_and_test_set
+from evaluate_digit_classifier import test_digit_classifier, calculate_total_cost
+
+
+# digit classifiers to evaluate
+DIGIT_CLASSIFIERS = {
+    "random_digit_classifier": random_digit_classifier,
+    "average_digit_classifier": average_digit_classifier,
+    "random_mlp_digit_classifier": random_mlp_digit_classifier,
+    "sklearn_mlp_digit_classifier": sklearn_mlp_digit_classifier
+}
 
 
 def setup():
@@ -55,7 +64,7 @@ def setup():
     print('==')
 
 
-def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_count=1000):
+def evaluate_digit_classifier(classifier_name, classifier):
     # use classifier on image0
     print('===')
     print(f'begin evaluation: {classifier_name}')
@@ -85,23 +94,12 @@ def evaluate_digit_classifier(classifier, classifier_name, test_start=0, test_co
 
 
 def main():
+    # load data and perform training
     setup()
 
-    evaluate_digit_classifier(random_digit_classifier,
-                                "random_digit_classifier",
-                                test_start=0, test_count=1000)
-
-    evaluate_digit_classifier(average_digit_classifier,
-                                "average_digit_classifier",
-                                test_start=0, test_count=1000)
-
-    evaluate_digit_classifier(random_mlp_digit_classifier,
-                                "random_mlp_digit_classifier",
-                                test_start=0, test_count=1000)
-
-    evaluate_digit_classifier(sklearn_mlp_digit_classifier,
-                                "sklearn_mlp_digit_classifier",
-                                test_start=0, test_count=1000)
+    # evaluate digit classifiers
+    for classifier_name in DIGIT_CLASSIFIERS:
+        evaluate_digit_classifier(classifier_name, DIGIT_CLASSIFIERS[classifier_name])
 
 
 if __name__ == "__main__":
