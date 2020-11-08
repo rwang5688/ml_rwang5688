@@ -1,7 +1,7 @@
 import pandas as pd
 from dfutil import print_df_stats
 from dfutil import get_encoded_df
-from dfutil import get_correlated_columns_gt_threshold_indexes
+from dfutil import get_correlated_df
 from dfutil import split_df_to_csv_files
 
 
@@ -19,9 +19,7 @@ def main():
 
     label_column_name = 'tech_approval_required'
     threshold = .1
-    correlated_columns_gt_threshold_indexes = \
-        get_correlated_columns_gt_threshold_indexes(encoded_df, label_column_name, threshold)
-    correlated_df = encoded_df[correlated_columns_gt_threshold_indexes]
+    correlated_df= get_correlated_df(encoded_df, label_column_name, threshold)
     df_name = 'correlated_df'
     print_df_stats(correlated_df, df_name)
 
