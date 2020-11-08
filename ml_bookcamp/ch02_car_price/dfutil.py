@@ -19,16 +19,20 @@ def get_encoded_df(df):
     return encoded_df
 
 
-def get_correlated_columns_gt_threshold_indexes(df, label_column_name, threshold):
+def get_correlated_df(df, label_column_name, threshold):
     correlated_columns = df.corr()[label_column_name].abs()
     correlated_columns_gt_threshold_indexes = correlated_columns[correlated_columns > threshold].index
+
+    # debug: print columns with correlation > threshold
     correlated_columns_gt_threshold = correlated_columns.filter(correlated_columns_gt_threshold_indexes)
     print("==")
-    print("get_correlated_columns:")
+    print("get_correlated_df:")
     print(f"columns with correlation > {threshold*100}% vs label column '{label_column_name}':")
     print(correlated_columns_gt_threshold)
     print("==")
-    return correlated_columns_gt_threshold_indexes
+
+    correlated_df = df[correlated_columns_gt_threshold_indexes]
+    return correlated_df
 
 
 def write_df_to_csv_file(df, csv_file_name):
