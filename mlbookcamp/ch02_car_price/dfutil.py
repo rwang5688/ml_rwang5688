@@ -19,16 +19,16 @@ def get_encoded_df(df):
     return encoded_df
 
 
-def get_correlated_columns(encoded_df, label_column_name, threshold):
-    corrs = encoded_df.corr()[label_column_name].abs()
-    columns = corrs[corrs > threshold].index
-    corrs = corrs.filter(columns)
+def get_correlated_columns_gt_threshold_indexes(df, label_column_name, threshold):
+    correlated_columns = df.corr()[label_column_name].abs()
+    correlated_columns_gt_threshold_indexes = correlated_columns[correlated_columns > threshold].index
+    correlated_columns_gt_threshold = correlated_columns.filter(correlated_columns_gt_threshold_indexes)
     print("==")
     print("get_correlated_columns:")
-    print(f"Columns with correlation > {threshold*100}% vs label column '{label_column_name}':")
-    print(corrs)
+    print(f"columns with correlation > {threshold*100}% vs label column '{label_column_name}':")
+    print(correlated_columns_gt_threshold)
     print("==")
-    return columns
+    return correlated_columns_gt_threshold_indexes
 
 
 def write_df_to_csv_file(df, csv_file_name):
@@ -37,8 +37,8 @@ def write_df_to_csv_file(df, csv_file_name):
         f.write(df_data)
 
 
-def split_correlated_df_to_csv_files(correlated_df):
-    train_df, val_and_test_data = train_test_split(correlated_df, test_size=0.3, random_state=0)
+def split_df_to_csv_files(df):
+    train_df, val_and_test_data = train_test_split(df, test_size=0.3, random_state=0)
     val_df, test_df = train_test_split(val_and_test_data, test_size=0.333, random_state=0)
 
     csv_file_name = 'train.csv'
