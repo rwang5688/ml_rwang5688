@@ -1,6 +1,8 @@
 import pandas as pd
-from dfutil import print_df_stats, get_encoded_df, get_correlated_columns
-from dfutil import split_correlated_df_to_csv_files
+from dfutil import print_df_stats
+from dfutil import get_encoded_df
+from dfutil import get_correlated_columns_gt_threshold_indexes
+from dfutil import split_df_to_csv_files
 
 
 def main():
@@ -8,25 +10,22 @@ def main():
 
     csv_file_name = 'orders_with_predicted_value.csv'
     raw_df = pd.read_csv(csv_file_name)
-
     df_name = 'raw_df'
     print_df_stats(raw_df, df_name)
 
     encoded_df = get_encoded_df(raw_df)
-
     df_name = 'encoded_df'
     print_df_stats(encoded_df, df_name)
 
     label_column_name = 'tech_approval_required'
     threshold = .1
-    columns = get_correlated_columns(encoded_df, label_column_name, threshold)
-    correlated_df = encoded_df[columns]
-
+    correlated_columns_gt_threshold_indexes = \
+        get_correlated_columns_gt_threshold_indexes(encoded_df, label_column_name, threshold)
+    correlated_df = encoded_df[correlated_columns_gt_threshold_indexes]
     df_name = 'correlated_df'
     print_df_stats(correlated_df, df_name)
 
-    train_df, val_df, test_df = split_correlated_df_to_csv_files(correlated_df)
-
+    train_df, val_df, test_df = split_df_to_csv_files(correlated_df)
     df_name = 'train_df'
     print_df_stats(train_df, df_name)
     df_name = 'val_df'

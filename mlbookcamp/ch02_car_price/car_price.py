@@ -1,8 +1,6 @@
 import pandas as pd
 from dfutil import print_df_stats
 import numpy as np
-import seaborn as sns
-from matplotlib import pyplot as plt
 
 
 def main():
@@ -12,3 +10,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
