@@ -2,6 +2,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
+def normalize_df_strings(df):
+    df.columns = df.columns.str.lower().str.replace(' ', '_')
+    string_columns = list(df.dtypes[df.dtypes == 'object'].index)
+    for col in string_columns:
+        df[col] = df[col].str.lower().str.replace(' ', '_')
+
+
 def print_df_stats(df, df_name):
     print("==")
     print(f"print_df_stat: {df_name}")
@@ -19,15 +26,15 @@ def get_encoded_df(df):
     return encoded_df
 
 
-def get_correlated_df(df, label_column_name, threshold):
-    correlated_columns = df.corr()[label_column_name].abs()
+def get_correlated_df(df, target_column_name, threshold):
+    correlated_columns = df.corr()[target_column_name].abs()
     correlated_columns_gt_threshold_indexes = correlated_columns[correlated_columns > threshold].index
 
     # debug: print columns with correlation > threshold
     correlated_columns_gt_threshold = correlated_columns.filter(correlated_columns_gt_threshold_indexes)
     print("==")
     print("get_correlated_df:")
-    print(f"columns with correlation > {threshold*100}% vs label column '{label_column_name}':")
+    print(f"columns with correlation > {threshold*100}% vs target column '{target_column_name}':")
     print(correlated_columns_gt_threshold)
     print("==")
 
