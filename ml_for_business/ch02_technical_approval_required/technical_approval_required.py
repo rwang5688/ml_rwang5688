@@ -1,7 +1,7 @@
 import pandas as pd
 from dfutil import normalize_df_strings, print_df_stats
 from dfutil import get_encoded_df, get_correlated_df
-from dfutil import split_df_to_csv_files
+from dfutil import sklearn_split_df
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
     correlated_df= get_correlated_df(encoded_df, target_column_name, threshold)
     print_df_stats(correlated_df, 'correlated_df')
 
-    train_df, val_df, test_df = split_df_to_csv_files(correlated_df)
+    train_df, val_df, test_df = sklearn_split_df(correlated_df)
     print_df_stats(train_df, 'train_df')
     print_df_stats(val_df, 'val_df')
     print_df_stats(test_df, 'test_df')
