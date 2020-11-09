@@ -11,13 +11,15 @@ def normalize_df_strings(df):
 
 def print_df_stats(df, df_name):
     print("==")
-    print(f"print_df_stat: {df_name}")
+    print("print_df_stat: %s" % df_name)
     print("First five rows in dataset:")
     print(df.head())
-    print(f"Number of rows in dataset: {df.shape[0]}.")
-    print(f"Number of columns in dataset: {df.shape[1]}.")
+    print("Number of rows in dataset: %d." % df.shape[0])
+    print("Number of columns in dataset: %d." % df.shape[1])
     print("Distribution of values columns[0]:")
     print(df[df.columns[0]].value_counts())
+    print("Number of null values in each column:")
+    print(df.isnull().sum())
     print("==")
 
 
@@ -34,7 +36,7 @@ def get_correlated_df(df, target_column_name, threshold):
     correlated_columns_gt_threshold = correlated_columns.filter(correlated_columns_gt_threshold_indexes)
     print("==")
     print("get_correlated_df:")
-    print(f"columns with correlation > {threshold*100}% vs target column '{target_column_name}':")
+    print("columns with correlation > %2.1f percent vs target column '%s':" % (threshold*100, target_column_name))
     print(correlated_columns_gt_threshold)
     print("==")
 
